@@ -1,0 +1,10 @@
+type Query {
+    get_users: [User]
+    get_userid(_id: String!): User
+}
+
+type User {
+    id: String!
+    name: String!
+    last_active: Int
+}

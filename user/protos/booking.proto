@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+service Booking {
+  rpc GetBooking(EmptyTwo) returns (stream BookingData) {}
+  rpc GetBookingByUserId(UserID) returns (BookingData) {}
+  rpc AddBooking(BookingData) returns (BookingData){}
+  rpc DeleteBooking(BookingData) returns (BookingData){}
+  rpc UpdateBooking(BookingData) returns (BookingData){}
+  rpc GetShowtimeTwo(EmptyTwo) returns (stream ShowtimeDataTwo){}
+  rpc GetShowtimeByDateTwo(ShowtimeIDTwo) returns (ShowtimeDataTwo){}
+  rpc GetShowtimeByMovieTwo(ShowtimeDateTwo) returns (ShowtimeDataTwo){}
+}
+
+message EmptyTwo {}
+
+message UserID {
+  string userid = 1;
+}
+
+message BookingData {
+  string userid = 1;
+  repeated Dates dates = 2;
+}
+
+message Dates {
+  string date = 1;
+  repeated string movies = 2;
+}
+
+message ShowtimeDataTwo {
+  string date = 1;
+  repeated string movies = 2;
+}
+
+message ShowtimeIDTwo{
+  string id = 1;
+}
+
+message ShowtimeDateTwo{
+  string date = 1;
+}
